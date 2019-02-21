@@ -1,5 +1,7 @@
 gen_data
 original_data
+predict_future_sales.Rproj
+predict_future_sales_2.Rproj
 .Rproj.user
 .Rhistory
 .RData

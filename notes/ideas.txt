@@ -51,6 +51,8 @@ look inside catboost:
 	notes:
 	result:
 
+try this
+investigate the catboost benchmark, make it validate itself timewise
 
 validation:
 	idea: create a validation sample
@@ -61,6 +63,7 @@ validation:
 catboost_benchmark:
 	idea: run catboost on inital data set to get a benchmark
 	notes:
+		-catboost likely didnt validate itself timewise
 		-saved in gen_data/catboost_submission.csv
 		-notebook at eda/scripts/catboost_benchmark.ipynb
 	result: scored 1.86768
