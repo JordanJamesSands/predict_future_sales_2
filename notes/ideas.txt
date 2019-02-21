@@ -28,6 +28,8 @@ probe_leaderboard:
 
 -------------------- TIER 2 --------------------------------------
 
+investigate shifting the submission by a factor
+
 try
 lagged / cumulative over time / mean over time feature engineering
 
