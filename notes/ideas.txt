@@ -1,15 +1,18 @@
-Template:
-	Title:
-		idea:
-		notes:
-		result:
+--------------------- TIER 1 ----------------------------------
+
 try this
 check week2 advice work i did
+	idea:
+	notes:
+		-this can be tied with test_validation
 
 try this
 test_validation:
 	idea: iterate costant solutions, compare validation with public leaderboard
 	notes:
+		-use constant predictions, maybe also basic stuff like catboost or target encoding from month before
+		-this can be tied with week2 advice, do previous month target encoding
+		-this can be tied with probe_leaderboard
 	result:
 
 
@@ -18,48 +21,69 @@ probe_leaderboard:
 	idea: find optimal single value solution, this should be mean of submissions?
 	notes: 
 		-I did this before, look it up
+		-this can be tied in with test validation
 	result:
 
 
-try this
+
+-------------------- TIER 2 --------------------------------------
+
+try
 lagged / cumulative over time / mean over time feature engineering
 
 
----LESS IMPORTANT/LATER STUFF---
+----------------------TIER 3--------------------------
 
-try this
-colour code vim correctly
 
-try this
+
+try
 target_encode and XGBoost
 	idea: mean encode some basic variable then run XGboost
 	notes:
 		-i think this was advice
 	result:
-try this
+try
 drop old data:
 	idea: drop data from a long time ago
 	notes: 
 		-the model / feature enginering might do this anyway
 	result:
-try this
+try
 run catboost after feature engineering
 
-try this
+try
 look inside catboost:
 	idea: get an idea of variable importance and interactions
 	notes:
 	result:
 
-try this
+try
 investigate the catboost benchmark, make it validate itself timewise
 
+
+
+-----------------------------DONE-------------------------------------
+
+
+
+DONE
+colour code vim correctly
+	idea: use vim or another editor to code this script with colours
+	notes:
+		-tried atom and notepad++
+		-this is a nightmare
+	result: gave up
+
+
+DONE
 validation:
 	idea: create a validation sample
 	notes: 
 		-For N months, select M as initial training set, validated on M+1'th month, then M+=1, repeat 
 	result: created validation_split.R
 
+	
+DONE
 catboost_benchmark:
 	idea: run catboost on inital data set to get a benchmark
 	notes:
@@ -69,14 +93,14 @@ catboost_benchmark:
 	result: scored 1.86768
 
 
+DONE
 remove outliers
 	idea: remove outliers
 	notes: 
 		-the clipping that mimics competition guidelines took care of outliers
 	result:done, (i clipped sales values)
 
-
-
+DONE
 check leak:
 	idea: check test subset to see if its accosiated with any other vars
 	notes:
@@ -84,12 +108,15 @@ check leak:
 		-dataset too large, try aggregating first, did this
 	result: no obvious relationship between sales and inclusion of item/shop combo in test set
 
-
+DONE
 aggregate:
 	idea: aggregate train data to make it compatible with test
 	notes: 
 		-need to also clip sales values between [0,20]
 	result: aggregation script is preproc/aggregate.R
+
+	
+DONE
 stitch:
 	idea: merge input data
 	notes; 
