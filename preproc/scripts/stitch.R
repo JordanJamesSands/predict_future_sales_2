@@ -7,9 +7,9 @@ test1 <- merge(items0,item_cats0,by='item_category_id') %>%
     merge(test0,by='item_id') %>% 
     merge(shops0,by='shop_id')
 
-write.csv(train1,'gen_data/train1.csv')
+write.csv(train1,'gen_data/train1.csv',row.names = FALSE)
 
-write.csv(test1,'gen_data/test1.csv')
+write.csv(test1,'gen_data/test1.csv',row.names=FALSE)
 
 
 

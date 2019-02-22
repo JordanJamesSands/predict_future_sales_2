@@ -4,7 +4,7 @@ train2 <- group_by(train1,date_block_num,shop_id,item_id,item_category_id,shop_n
 train2$sales <- ifelse(train2$sales<0,0,train2$sales)
 train2$sales <- ifelse(train2$sales>20,20,train2$sales)
 
-write.csv(train2,'gen_data/train2.csv')
+write.csv(train2,'gen_data/train2.csv',row.names=FALSE)
 
 
 

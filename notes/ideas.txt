@@ -5,26 +5,26 @@ check week2 advice work i did
 	idea:
 	notes:
 		-this can be tied with test_validation
+	result: craeted a python class aggmodel that ...
 
 try this
 test_validation:
 	idea: iterate costant solutions, compare validation with public leaderboard
 	notes:
+		-prolly dont bother inclusing constant solutions in validation testing, its just gonna show change over time and the constant predictions are designed to fit the public leaderboard anyway
+		-pandas has a 'categorical' column that lightGBM acknowledges by default
+		-TAKE A STEP BACK AND THINK ABOUT WHETHER OR NOT THIS IS FRUITFUL
+		-would liketo label cat features for a model before passing it to the validation function
+			-consider writing a dataprep function for each model and apssing it to validation
+		-redo validation split in python
+		-SWITCHING TO PYTHON
+		-this might be better in python because:
+			-it is more obviously OOP
+			-it is the language taught in the course
 		-use constant predictions, maybe also basic stuff like catboost or target encoding from month before
 		-this can be tied with week2 advice, do previous month target encoding
 		-this can be tied with probe_leaderboard
 	result:
-
-
-try this
-probe_leaderboard:
-	idea: find optimal single value solution, this should be mean of submissions?
-	notes: 
-		-I did this before, look it up
-		-this can be tied in with test validation
-	result:
-
-
 
 -------------------- TIER 2 --------------------------------------
 
@@ -32,6 +32,10 @@ investigate shifting the submission by a factor
 
 try
 lagged / cumulative over time / mean over time feature engineering
+
+try
+test validation again
+	idea: make sure validation is accurate for more complex models
 
 
 ----------------------TIER 3--------------------------
@@ -62,9 +66,27 @@ look inside catboost:
 try
 investigate the catboost benchmark, make it validate itself timewise
 
-
+try
+extra precise leaderboard probing?
+	idea:
+	notes:
+		-public leaderboard is approx 35% of data, private is the rest, so getting really specific might not be so fruitful
+	result:
 
 -----------------------------DONE-------------------------------------
+
+
+Done
+probe_leaderboard:
+	idea: find optimal single value solution, this should be mean of submissions?
+	notes: 
+		-I did this before, look it up
+		-this can be tied in with test validation
+	result: 
+		-0.2875 is best const sol within reason
+		-best is 0.2839853
+		-someone on a kaggle forum pointed out that with two constant entries you can compute it analytically, after doing this I found it to be 0.2839853
+
 
 
 
