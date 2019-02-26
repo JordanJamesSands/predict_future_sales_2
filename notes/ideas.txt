@@ -1,32 +1,40 @@
 --------------------- TIER 1 ----------------------------------
+try this
+test simple validation
+	idea: test validation using *only* month 33 as validation
+try this
+test the pipeline
+	idea: erase gen_data, (back it up fisrt) then try to reproduce it
 
 try this
-check week2 advice work i did
-	idea:
-	notes:
-		-this can be tied with test_validation
-	result: craeted a python class aggmodel that ...
+verify data accuracy of data input for modelling
+	idea: ensure data was preprocessed correctly, consider using R for a different perspective
+
 
 try this
-test_validation:
-	idea: iterate costant solutions, compare validation with public leaderboard
+formalise a pipeline
+	idea: need to get organised
 	notes:
-		-prolly dont bother inclusing constant solutions in validation testing, its just gonna show change over time and the constant predictions are designed to fit the public leaderboard anyway
-		-pandas has a 'categorical' column that lightGBM acknowledges by default
-		-TAKE A STEP BACK AND THINK ABOUT WHETHER OR NOT THIS IS FRUITFUL
-		-would liketo label cat features for a model before passing it to the validation function
-			-consider writing a dataprep function for each model and apssing it to validation
-		-redo validation split in python
-		-SWITCHING TO PYTHON
-		-this might be better in python because:
-			-it is more obviously OOP
-			-it is the language taught in the course
-		-use constant predictions, maybe also basic stuff like catboost or target encoding from month before
-		-this can be tied with week2 advice, do previous month target encoding
-		-this can be tied with probe_leaderboard
-	result:
+		-try this 2 problems in enrich1.ipynb.
+			-it sets date_block_num to 33 for test
+				-could make full train set an element of pickled train list, but this complicates everything
+			-it hardcodes the training list pickle file, what if I change the pipeline?
+			
+		-create preprocess function that handles train and test/validation ad takes another function to create features
+	result
+
 
 -------------------- TIER 2 --------------------------------------
+NOTE: during model1.model1_script1.ipynb irreproducible results found, was gettin rmse between 3 and 4, after changes to enrich, it is usually higher, (could be randomness)
+
+
+validation split scheme creates validation without item_id or chop_id, contrary to test csv file
+
+think about this
+	idea: consider shop item pairs in validation sets might not have existed back then, this could skew things
+	notes: calidation is close to test time tho, prolly not a problem
+
+
 
 investigate shifting the submission by a factor
 
@@ -41,6 +49,27 @@ test validation again
 ----------------------TIER 3--------------------------
 
 
+try
+test_validation:
+	idea: iterate costant solutions, compare validation with public leaderboard
+	notes:
+		-make a neat noetbook creating validation df
+		-this is a nightmare, avoid complicated validation schemes unless they are neccesary
+		-validation split is incorrect, y_val_list does not properly mimic test
+		-prolly dont bother inclusing constant solutions in validation testing, its just gonna show change over time and the constant predictions are designed to fit the public leaderboard anyway
+		-pandas has a 'categorical' column that lightGBM acknowledges by default
+		-TAKE A STEP BACK AND THINK ABOUT WHETHER OR NOT THIS IS FRUITFUL
+		-would liketo label cat features for a model before passing it to the validation function
+			-consider writing a dataprep function for each model and apssing it to validation
+		-redo validation split in python
+		-SWITCHING TO PYTHON
+		-this might be better in python because:
+			-it is more obviously OOP
+			-it is the language taught in the course
+		-use constant predictions, maybe also basic stuff like catboost or target encoding from month before
+		-this can be tied with week2 advice, do previous month target encoding
+		-this can be tied with probe_leaderboard
+	result: JUST GONNA GIVE UP, MAYBE TRY IT LATER, FOR NOW USE MONTH 33 AS VALIDATION
 
 try
 target_encode and XGBoost
@@ -74,6 +103,36 @@ extra precise leaderboard probing?
 	result:
 
 -----------------------------DONE-------------------------------------
+
+Done
+	generate x_valid_33 from train_to_32 so that nans are produced, properly mimicing test
+	result: changed enrichment/enrich1.ipynb so that when enriching validation sets, only the relavant training set is used.
+
+
+
+
+Done
+check valid_33 
+	idea: is x_valid_33 the same as test in simple_validation_split.ipynb?
+	result: yes it is, rewrote preproc/simple_validation_split.ipynb accordingly
+
+Done
+drop listify_test
+	idea:	clean pipeline, (drop listify_test?)
+	notes: 	dropped listify, still need to formalise the pipeline
+t
+Done
+reconsider adding test to end of validation list, when I run a sibmission do I wanna use end of list OR go back to start and not partition?
+	result: no im gonna carry test through
+
+
+Done
+check week2 advice work i did
+	idea:
+	notes:
+		-this can be tied with test_validation
+	result: created a python class aggmodel that takes an arg for how many months to aggregate over, using it in validation testing
+
 
 
 Done

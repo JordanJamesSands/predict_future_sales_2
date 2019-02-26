@@ -1,4 +1,5 @@
 gen_data
+gen_data_backup
 original_data
 predict_future_sales.Rproj
 predict_future_sales_2.Rproj
