@@ -1,29 +1,23 @@
 --------------------- TIER 1 ----------------------------------
 try this
+clip values to [0,20] after predictions
+	idea:
+	notes; 
+		atm I am clipping in preprocessing
+		For tree models, it might be better to clip *after* since order is the onlything that matters
+		For non-tree models, it might be best to clip *before* since outliers make trouble. 
+		For non-tree models, consider clipping to [0,21] or even [-1,21]. This way, a distinction is made between very large values and values that are exactly 20.
+		Consider making a NOT_CLIPPED variety of preproc scripts with related output files
+	result:
+
+try this
+generate a horde of features based on intuition
+	notes:
+	result:
+
+try this
 test simple validation
 	idea: test validation using *only* month 33 as validation
-try this
-test the pipeline
-	idea: erase gen_data, (back it up fisrt) then try to reproduce it
-
-try this
-verify data accuracy of data input for modelling
-	idea: ensure data was preprocessed correctly, consider using R for a different perspective
-
-
-try this
-formalise a pipeline
-	idea: need to get organised
-	notes:
-		-try this 2 problems in enrich1.ipynb.
-			-it sets date_block_num to 33 for test
-				-could make full train set an element of pickled train list, but this complicates everything
-			-it hardcodes the training list pickle file, what if I change the pipeline?
-			
-		-create preprocess function that handles train and test/validation ad takes another function to create features
-	result
-
-
 -------------------- TIER 2 --------------------------------------
 NOTE: during model1.model1_script1.ipynb irreproducible results found, was gettin rmse between 3 and 4, after changes to enrich, it is usually higher, (could be randomness)
 
@@ -47,7 +41,10 @@ test validation again
 
 
 ----------------------TIER 3--------------------------
-
+try
+running pipeline on command line
+	notes: might be better on linux, maybe next project
+	result:
 
 try
 test_validation:
@@ -103,6 +100,42 @@ extra precise leaderboard probing?
 	result:
 
 -----------------------------DONE-------------------------------------
+Done
+check what to do with negative entries in original daily data
+	result: dont worry about it, just aggregate it *and then* clip it for the month
+
+
+
+Done
+verify data accuracy of data input for modelling
+	idea: ensure data was preprocessed correctly, consider using R for a different perspective
+	result: success, note that this is while clipping training data during preprocessing, not after predictions are made
+
+
+
+Done
+check that clipping is after aggregating
+	result: the true targets are clipped
+
+
+Done
+test the pipeline
+	idea: erase gen_data, (back it up fisrt) then try to reproduce it
+	result: success, pipeline from fresh start created a file identical to the result of previous hacking
+
+Done
+formalise a pipeline
+	idea: need to get organised
+	notes:
+		-2 problems in enrich1.ipynb.
+			-it sets date_block_num to 33 for test
+				-could make full train set an element of pickled train list, but this complicates everything
+			-it hardcodes the training list pickle file, what if I change the pipeline?
+		-create preprocess function that handles train and test/validation ad takes another function to create features
+	
+	result:enrich1.ipynb preprocesses train and test/val without feature engineering, this can be added later. Pipeline reads train and sets date_block_num accordingly, test is carried through on the end of the pickled python lists, and the pickle file is hardcoded but its on the record
+		
+
 
 Done
 	generate x_valid_33 from train_to_32 so that nans are produced, properly mimicing test

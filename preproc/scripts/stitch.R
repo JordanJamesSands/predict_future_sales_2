@@ -1,3 +1,4 @@
+library(dplyr)
 #read in 
 items0 = read.csv('original_data/items.csv')
 shops0 = read.csv('original_data/shops.csv')
