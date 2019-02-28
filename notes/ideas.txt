@@ -1,19 +1,5 @@
 --------------------- TIER 1 ----------------------------------
 try this
-clip values to [0,20] after predictions
-	idea:
-	notes; 
-		atm I am clipping in preprocessing
-		For tree models, it might be better to clip *after* since order is the onlything that matters
-		For non-tree models, it might be best to clip *before* since outliers make trouble. 
-		For non-tree models, consider clipping to [0,21] or even [-1,21]. This way, a distinction is made between very large values and values that are exactly 20.
-		Consider making a NOT_CLIPPED variety of preproc scripts with related output files
-			this will involve:
-				-renaming the existing aggregate.R file to something detailing clipping
-				-more
-	result:
-
-try this
 generate a horde of features based on intuition
 	notes:
 	result:
@@ -103,6 +89,25 @@ extra precise leaderboard probing?
 	result:
 
 -----------------------------DONE-------------------------------------
+Done
+clip values to [0,20] after predictions
+	idea:
+	notes; 
+		atm I am clipping in preprocessing
+		For tree models, it might be better to clip *after* since order is the onlything that matters
+		For non-tree models, it might be best to clip *before* since outliers make trouble. 
+		For non-tree models, consider clipping to [0,21] or even [-1,21]. This way, a distinction is made between very large values and values that are exactly 20.
+		Consider making a NOT_CLIPPED variety of preproc scripts with related output files
+			this will involve:
+				-renaming the existing aggregate.R file to something detailing clipping
+				-more
+	result:	
+		-made a separate script called preproc/clip.R to run after preproc/aggregate.R
+		-removed the clipping from aggregate.R, aggregate now outputs something called train2.1.csv, which is what was trian2.csv, but is not clipped.
+
+
+
+
 Done
 check what to do with negative entries in original daily data
 	result: dont worry about it, just aggregate it *and then* clip it for the month
