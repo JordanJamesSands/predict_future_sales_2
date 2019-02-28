@@ -8,8 +8,14 @@ preproc/scripts/stitch.R
 
 preproc/scripts/aggregate.R
 	input:	gen_data/train1.csv
+	output:	gen_data/train2.1.csv
+	desc: aggregates data from daily to monthly, dropping price information, does not clip values
+
+preproc/scripts/clip.R
+	input:	gen_data/train2.1.csv
 	output:	gen_data/train2.csv
-	desc: aggregates data from daily to monthly, dropping price information
+	desc: clips aggregate values to [0,20]
+
 
 preproc/scripts/simple_validation_split.ipynb
 	input:	gen_data/train2.csv

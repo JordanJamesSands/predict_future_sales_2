@@ -8,6 +8,9 @@ clip values to [0,20] after predictions
 		For non-tree models, it might be best to clip *before* since outliers make trouble. 
 		For non-tree models, consider clipping to [0,21] or even [-1,21]. This way, a distinction is made between very large values and values that are exactly 20.
 		Consider making a NOT_CLIPPED variety of preproc scripts with related output files
+			this will involve:
+				-renaming the existing aggregate.R file to something detailing clipping
+				-more
 	result:
 
 try this
