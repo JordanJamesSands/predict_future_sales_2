@@ -1,5 +1,28 @@
 --------------------- TIER 1 ----------------------------------
 try this
+if lagged values are included, early times may be distorted if Nas are converted to 0
+
+
+
+try this
+need to include all tested shop item pairs for all date_block_nums in all dataframes
+	notes:
+		-Realised this when generating features:
+			-how do i merge lagged data with current? It would seem wrong to go left, rigt or exclusive, wait a second, I should just already have every shop/item/dateblock combo, many of which will be 0 item_cnt_month.
+		-This might create a DF too big, might need to cull 2013 data points early in the pipeline as opposed to doing it later as intended.
+		-In the coursera course, for each month they considered all possible item/shop pairs and in doing so generated many pairs with 0 item_cnt_month. This also means that if an item wasnt sold in that month, it simply doesnt exist for that month.
+	result: For now, I will copy (roughly) the coursera courses idea
+try this
+consider dropping shop/item pairs that arnt in test?
+	notes:
+		this could be a bad idea, as there is an oppurtunity to learn from other data
+		this could be a good idea, it will save space
+		this could be a bad idea *if the item/shop pairs are also included in validation* then I could learn from them.
+			-But then validation would be different to test.
+		conclusion: I should drop them
+		-gonna continue for now without doing this, in the coursera course they did not
+
+try this
 generate a horde of features based on intuition
 	notes:
 	result:
