@@ -2,7 +2,9 @@
 try this
 if lagged values are included, early times may be distorted if Nas are converted to 0
 
-
+try this
+ensure shop item pairs from test data are included in every month of train?
+maybe just month 32? 31 and 32?
 
 try this
 need to include all tested shop item pairs for all date_block_nums in all dataframes
