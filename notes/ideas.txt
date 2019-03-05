@@ -1,5 +1,8 @@
 --------------------- TIER 1 ----------------------------------
 try this
+drop the date_block_num column, make the data wide
+	notes: just increase dateback_gen (both for train and test) in features1.ipynb to include all but the last month. Then drop the appropriate earlier months, (this is already what Im doing, but I only went back 12 months)
+try this
 if lagged values are included, early times may be distorted if Nas are converted to 0
 
 try this
