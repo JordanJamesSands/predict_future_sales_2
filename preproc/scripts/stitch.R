@@ -10,12 +10,12 @@ sample_sub = read.csv('original_data/sample_submission.csv.gz')
 
 #modularised in preproc_1.R
 train1 <- merge(items0,item_cats0,by='item_category_id') %>% 
-    merge(train0,by='item_id') %>% 
-    merge(shops0,by='shop_id')
+  merge(train0,by='item_id') %>% 
+  merge(shops0,by='shop_id')
 
 test1 <- merge(items0,item_cats0,by='item_category_id') %>% 
-    merge(test0,by='item_id') %>% 
-    merge(shops0,by='shop_id')
+  merge(test0,by='item_id') %>% 
+  merge(shops0,by='shop_id')
 
 write.csv(train1,'gen_data/train1.csv',row.names = FALSE)
 #dont write test1, maybe change this later
@@ -36,4 +36,3 @@ rm(test1)
 #item_cats1 = select(item_cats0,-item_category_name)
 #shops1 = select(shops0,-shop_name)
 #train1 = select(train0,)
-
