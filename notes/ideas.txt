@@ -1,7 +1,7 @@
 ---HYPERPARAMS---
 how far back we look, and as such, which dates we drop, (making data wider) (dateback_gen) maybe check dates are dropped accordingly
 the window for target encoding
-
+filling nas in target encoding with mean or median
 --------------------- TIER 1 ----------------------------------
 try this
 ensure validation replicates new items, (~7% of test items hadnt been seen before)
@@ -13,9 +13,18 @@ clean data more
 	outliers
 
 try this
-	prep eda
-	finish data prep (including days of week stuff)
-	modelling
+	finish data prep
+
+try this
+target encoding:
+	do permutation regularisation?
+	take mean/sum sales up to current month for each data point
+		sum is a bad idea, later data would look different
+	maybe historical data is fine
+		but it doesnt work for other cats
+	I THINK ILL USE HISTORICAL DATA BUT RECCODE IT TO WORK WITH OTHER VARS
+try this
+generate preprocessed data with and without clipping
 
 
 try this
@@ -41,6 +50,10 @@ try this
 test simple validation
 	idea: test validation using *only* month 33 as validation
 
+
+
+
+
 try this
 complicate validation ofr ensembling purposes
 	-maybe just run the naive model for each month in train instead, stacking with the tree based model
@@ -53,6 +66,9 @@ write up
 -------------------- TIER 2 --------------------------------------
 NOTE: during model1.model1_script1.ipynb irreproducible results found, was gettin rmse between 3 and 4, after changes to enrich, it is usually higher, (could be randomness)
 
+consider uncoupling the dateback for prev month vars and the 'historical' target encodings
+
+days of the week feature engineering
 
 validation split scheme creates validation without item_id or chop_id, contrary to test csv file
 
