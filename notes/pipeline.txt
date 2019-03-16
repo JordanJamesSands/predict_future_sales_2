@@ -47,7 +47,10 @@ model1/model1_script1.ipynb
 
 
 
+NEW PIPELINE
 
+pipeline A
+clean.ipynb (no clip) -> simple_validation_split.ipynb -> enrich.ipynb -> features1,2,3,4 
 
 
 

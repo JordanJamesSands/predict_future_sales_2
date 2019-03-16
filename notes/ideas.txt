@@ -2,9 +2,15 @@
 how far back we look, and as such, which dates we drop, (making data wider) (dateback_gen) maybe check dates are dropped accordingly
 the window for target encoding
 filling nas in target encoding with mean or median
+permutation averageing  for expanding mean encoding (if i use it at all)
+kfold mean encoding k
+kfold mean encoding alpha
 --------------------- TIER 1 ----------------------------------
 try this
 ensure validation replicates new items, (~7% of test items hadnt been seen before)
+
+try this
+should i do mean encoding or sum encoding?
 
 try this
 clean data more
@@ -50,7 +56,8 @@ try this
 test simple validation
 	idea: test validation using *only* month 33 as validation
 
-
+try this
+num 0 entries should be similar between val and test, also train
 
 
 
@@ -65,6 +72,9 @@ try this
 write up
 -------------------- TIER 2 --------------------------------------
 NOTE: during model1.model1_script1.ipynb irreproducible results found, was gettin rmse between 3 and 4, after changes to enrich, it is usually higher, (could be randomness)
+
+
+consider basic encoding for some categorical vars, not all mean encoding
 
 consider uncoupling the dateback for prev month vars and the 'historical' target encodings
 
